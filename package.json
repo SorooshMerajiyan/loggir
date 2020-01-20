@@ -8,6 +8,10 @@
   },
   "author": "Soroosh Merajiyan <sorooshmerajiyan@gmail.com> (https://www.linkedin.com/in/sorooshmerajiyan)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SorooshMerajiyan/loggir"
+  },
   "dependencies": {
     "make-dir": "^3.0.0"
   },
