@@ -1,0 +1,5 @@
+/node_modules
+.eslintrc.json
+.prettierrc
+package-lock.json
+.npmignore
