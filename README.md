@@ -1,11 +1,10 @@
 # Installation
-Loggir is created to help fellow developers have a simple yet useful logging tool.
 
+Loggir is created to help fellow developers have a simple yet useful logging tool.
 
 ```
 npm i --save loggir
 ```
-
 
 # Usage
 
@@ -24,9 +23,11 @@ const logger = new Loggir({
   log: false
 });
 
-logger.error("Some error"); // [Europe/London 1/20/2020, 23:00:45] [ERROR] Some error
-logger.info("Some info"); // [Europe/London 1/20/2020, 23:00:45] [INFO] Some info
-logger.warn("Some warn"); // [Europe/London 1/20/2020, 23:00:45] [WARN] Some warn
+(async () => {
+  await logger.error("Some error"); // [Europe/London 1/25/2020, 01:21:57] [api] [ERROR] "Some error"
+  await logger.info("Some info"); // [Europe/London 1/25/2020, 01:21:57] [api] [INFO] "Some info"
+  await logger.warn("Some warn"); // [Europe/London 1/25/2020, 01:21:57] [api] [WARN] "Some warn"
+})();
 ```
 
 # Methods
