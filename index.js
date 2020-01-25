@@ -38,58 +38,76 @@ class Logger {
 
   async error(text = "You need to enter text in order to log it") {
     await checkDir(this.path);
-    const type = "error";
-    const { fileName, date } = getName(
-      this.fileName,
-      this.timezone,
-      this.format,
-      this.separate,
-      type
-    );
-    const info = `\n[${this.timezone} ${date}] [${
-      this.name
-    }] [ERROR] ${JSON.stringify(text)}`;
-    nodeFs.appendFile(nodePath.join(this.path, fileName), info, err => {
-      if (err) throw err;
-      if (this.log) cLog(`new log saved to ${fileName}`);
+    return new Promise((resolve, reject) => {
+      const type = "error";
+      const { fileName, date } = getName(
+        this.fileName,
+        this.timezone,
+        this.format,
+        this.separate,
+        type
+      );
+      const info = `\n[${this.timezone} ${date}] [${
+        this.name
+      }] [ERROR] ${JSON.stringify(text)}`;
+      nodeFs.appendFile(nodePath.join(this.path, fileName), info, err => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        if (this.log) cLog(`new log saved to ${fileName}`);
+        resolve();
+      });
     });
   }
 
   async info(text = "You need to enter text in order to log it") {
     await checkDir(this.path);
-    const type = "info";
-    const { fileName, date } = getName(
-      this.fileName,
-      this.timezone,
-      this.format,
-      this.separate,
-      type
-    );
-    const info = `\n[${this.timezone} ${date}] [${
-      this.name
-    }] [INFO] ${JSON.stringify(text)}`;
-    nodeFs.appendFile(nodePath.join(this.path, fileName), info, err => {
-      if (err) throw err;
-      if (this.log) cLog(`new log saved to ${fileName}`);
+    return new Promise((resolve, reject) => {
+      const type = "info";
+      const { fileName, date } = getName(
+        this.fileName,
+        this.timezone,
+        this.format,
+        this.separate,
+        type
+      );
+      const info = `\n[${this.timezone} ${date}] [${
+        this.name
+      }] [INFO] ${JSON.stringify(text)}`;
+      nodeFs.appendFile(nodePath.join(this.path, fileName), info, err => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        if (this.log) cLog(`new log saved to ${fileName}`);
+        resolve();
+      });
     });
   }
 
   async warn(text = "You need to enter text in order to log it") {
     await checkDir(this.path);
-    const type = "warn";
-    const { fileName, date } = getName(
-      this.fileName,
-      this.timezone,
-      this.format,
-      this.separate,
-      type
-    );
-    const info = `\n[${this.timezone} ${date}] [${
-      this.name
-    }] [WARN] ${JSON.stringify(text)}`;
-    nodeFs.appendFile(nodePath.join(this.path, fileName), info, err => {
-      if (err) throw err;
-      if (this.log) cLog(`new log saved to ${fileName}`);
+    return new Promise((resolve, reject) => {
+      const type = "warn";
+      const { fileName, date } = getName(
+        this.fileName,
+        this.timezone,
+        this.format,
+        this.separate,
+        type
+      );
+      const info = `\n[${this.timezone} ${date}] [${
+        this.name
+      }] [WARN] ${JSON.stringify(text)}`;
+      nodeFs.appendFile(nodePath.join(this.path, fileName), info, err => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        if (this.log) cLog(`new log saved to ${fileName}`);
+        resolve();
+      });
     });
   }
 }

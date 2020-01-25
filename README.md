@@ -1,6 +1,11 @@
-# Intro
-
+# Installation
 Loggir is created to help fellow developers have a simple yet useful logging tool.
+
+
+```
+npm i --save loggir
+```
+
 
 # Usage
 
@@ -16,7 +21,7 @@ const logger = new Loggir({
   format: "log",
   separate: true,
   timezone: "Europe/London",
-  log: true
+  log: false
 });
 
 logger.error("Some error"); // [Europe/London 1/20/2020, 23:00:45] [ERROR] Some error
@@ -48,15 +53,15 @@ Example: `{ name: 'api' }`
 
 ##### path
 
-Directory path to save logs in, which will save logs inside provided path inside of the root of project.
+Directory path to save logs in, prior to where loggir is launching from.
 
 Example: `{ path: 'logs' }`
 
 ##### fileName
 
-Provide this to save your logs inside a file with give name, not providing will result a generate name with month-day-year.format file.
+Provide this to save your logs inside a file with the given name, not providing will result in an auto-generated name with `month-day-year.format` file.
 
-Example: `{ path: 'mylog' }`
+Example: `{ fileName: 'mylog' }`
 
 ##### format
 
@@ -66,7 +71,7 @@ Example: `{ format: 'txt' }` - defaults to `log`
 
 ##### separate
 
-Tired of looking for errors in the same file as infos and warnings? We got you! just provide separate as `true` and loggir will log for you in different files!
+Tired of looking for errors in the same file as infos and warnings? We got you! just provide separate as `true` and loggir will log for you in separate files!
 
 Example: `{separate: true}` - defaults to `false`
 
